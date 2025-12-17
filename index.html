@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: #fff;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 350px;
+      animation: fadeIn 1.5s ease;
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    button:hover {
+      background: #ff2e55;
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="page1">
+    <h1>Hey Love 💕</h1>
+    <p>
+      This little QR code was just an excuse…<br />
+      to tell you how special you are to me ✨
+    </p>
+    <button onclick="nextPage()">Tap here ❤️</button>
+  </div>  <script>
+    function nextPage() {
+      document.getElementById('page1').innerHTML = `
+        <h1>Only for You 🥹</h1>
+        <p>
+          Every smile of yours makes my day brighter 🌸<br />
+          Every moment with you feels like home 🏡<br /><br />
+          No matter the distance,
+          my heart always finds you 💖
+        </p>
+        <p><strong>Forever yours ❤️</strong></p>
+      `;
+    }
+  </script></body>
+</html>
