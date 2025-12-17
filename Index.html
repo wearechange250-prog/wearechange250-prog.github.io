@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Urjja 💛</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --yellow:#ffd84d;
+  --pink:#ff6fae;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(120deg,#fff4b0,#ffd6e8,#fff1a8);
+  background-size:300% 300%;
+  animation:bgMove 12s ease infinite;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Floating hearts */
+.heart{
+  position:absolute;
+  font-size:18px;
+  animation:floatUp linear infinite;
+  opacity:0.75;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(100vh) scale(0.8);opacity:0;}
+  to{transform:translateY(-10vh) scale(1.2);opacity:1;}
+}
+
+/* Card */
+.card{
+  position:relative;
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(20px);
+  padding:40px 36px;
+  border-radius:30px;
+  box-shadow:0 30px 70px rgba(0,0,0,0.18);
+  max-width:420px;
+  text-align:center;
+  animation:fadeUp 1.6s ease;
+  transition:opacity 0.4s ease, transform 0.4s ease;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  margin-bottom:12px;
+  color:#3a2b1f;
+}
+
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  margin-top:26px;
+  color:#4a2c3b;
+}
+
+p{
+  font-size:16px;
+  line-height:1.8;
+  color:#3b3b3b;
+}
+
+.emoji-line{
+  font-size:22px;
+  margin:16px 0;
+}
+
+/* Button */
+button{
+  margin-top:28px;
+  padding:14px 34px;
+  border:none;
+  border-radius:50px;
+  background:linear-gradient(135deg,var(--yellow),var(--pink));
+  color:white;
+  font-size:16px;
+  font-weight:500;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(255,105,180,0.4);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover{
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:0 18px 40px rgba(255,105,180,0.55);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts container -->
+<script>
+const hearts = ["💛","🩷"];
+for(let i=0;i<24;i++){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=6+Math.random()*6+"s";
+  h.style.fontSize=14+Math.random()*18+"px";
+  document.body.appendChild(h);
+}
+</script>
+
+<div class="card" id="card">
+  <h1>Urjja Sharma 💛</h1>
+
+  <p>
+    This little QR code wasn’t random.<br>
+    It was meant to lead me straight to <strong>you</strong> ✨
+  </p>
+
+  <div class="emoji-line">🧇 💛 🩷 🐼</div>
+
+  <p>
+    Elegant like Dubai nights,<br>
+    soft like waffles you love,<br>
+    warm like yellow sunshine,<br>
+    and beautiful beyond words.
+  </p>
+
+  <button onclick="nextPage()">Only for you 💕</button>
+</div>
+
+<script>
+function nextPage(){
+  const card=document.getElementById("card");
+  card.style.opacity=0;
+
+  setTimeout(()=>{
+    card.innerHTML=`
+      <h1>My Urjja ✨</h1>
+
+      <p>
+        You are the most <strong>beautiful</strong>,<br>
+        <strong>understanding</strong>, and irresistibly attractive woman<br>
+        I’ve ever known.
+      </p>
+
+      <p>
+        From Taylor Swift songs 🎶 to panda smiles 🐼,<br>
+        from dreamy Dubai moments 🌆 to quiet heart talks…<br>
+        every version of you feels perfect to me.
+      </p>
+
+      <h2>Always You 💛</h2>
+
+      <p>
+        In every city, every crowd, every future —<br>
+        it’s you I choose.
+      </p>
+
+      <p><strong>Forever yours 🤍</strong></p>
+    `;
+    card.style.opacity=1;
+  },350);
+}
+</script>
+
+</body>
+</html>
