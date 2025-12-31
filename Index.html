@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Urjja ❤️</title>
+
+<!-- Luxury Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#fb7185;
+  --rose:#fda4af;
+  --gold:#fde68a;
+  --yellow:#fef3c7;
+  --black:#0f172a;
+  --charcoal:#334155;
+}
+
+*{box-sizing:border-box;}
+
+/* ---------- Body ---------- */
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(-45deg,#fff1c1,#ffd6e7,#fbcfe8,#fde68a);
+  background-size:400% 400%;
+  animation:flow 18s ease infinite;
+  overflow:hidden;
+}
+@keyframes flow{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* ---------- Container ---------- */
+.container{
+  background:rgba(255,255,255,0.9);
+  padding:44px 38px;
+  border-radius:32px;
+  max-width:760px;
+  width:92%;
+  text-align:center;
+  box-shadow:0 40px 90px rgba(0,0,0,0.18),
+             inset 0 0 40px rgba(253,230,138,0.15);
+  backdrop-filter:blur(10px);
+  max-height:90vh;
+  overflow-y:auto;
+}
+
+/* ---------- Typography ---------- */
+h2{
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  font-weight:800;
+  background:linear-gradient(135deg,#0f172a,#fb7185,#fde68a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:16px;
+}
+
+p{
+  font-size:17px;
+  line-height:2;
+  color:var(--charcoal);
+}
+
+/* ---------- Buttons ---------- */
+#buttons{
+  margin-top:16px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+button{
+  padding:14px 28px;
+  margin:10px;
+  border:none;
+  border-radius:999px;
+  font-size:15px;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(135deg,var(--pink),var(--rose));
+  box-shadow:0 12px 30px rgba(251,113,133,0.45);
+}
+button.secondary{
+  background:linear-gradient(135deg,#c7d2fe,#a5b4fc);
+}
+
+/* ---------- Tap Hearts ---------- */
+.tap-heart{
+  position:absolute;
+  width:18px;height:18px;
+  background:var(--pink);
+  transform:rotate(45deg);
+  animation:pop .8s ease forwards;
+  pointer-events:none;
+}
+.tap-heart::before,.tap-heart::after{
+  content:'';
+  position:absolute;
+  width:18px;height:18px;
+  background:var(--pink);
+  border-radius:50%;
+}
+.tap-heart::before{top:-9px;}
+.tap-heart::after{left:-9px;}
+@keyframes pop{
+  from{opacity:1;transform:scale(.6) rotate(45deg);}
+  to{opacity:0;transform:scale(1.6) translateY(-20px) rotate(45deg);}
+}
+
+/* ---------- Fireworks ---------- */
+.firework{position:fixed;pointer-events:none;}
+.spark{
+  width:4px;height:4px;border-radius:50%;
+  background:hsl(var(--h),90%,60%);
+  position:absolute;
+  animation:explode 1s ease-out forwards;
+}
+@keyframes explode{
+  from{transform:translate(0,0);opacity:1;}
+  to{transform:translate(var(--x),var(--y));opacity:0;}
+}
+
+/* ---------- Hearts flow on Happy New Year ---------- */
+.ny-heart{
+  position:fixed;
+  width:20px; height:20px;
+  background:var(--c);
+  transform:rotate(45deg);
+  animation:floatUp 4s linear infinite;
+  pointer-events:none;
+  z-index:5;
+}
+.ny-heart::before,.ny-heart::after{
+  content:'';
+  position:absolute;
+  width:20px; height:20px;
+  background:var(--c);
+  border-radius:50%;
+}
+.ny-heart::before{top:-10px;}
+.ny-heart::after{left:-10px;}
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(0.8) rotate(45deg);opacity:1;}
+  100%{transform:translateY(-300px) scale(1.6) rotate(45deg);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="card">
+  <h2 id="title">Do you love me?</h2>
+  <p id="text"></p>
+  <div id="buttons">
+    <button onclick="firstYes()">Yes ❤️</button>
+    <button onclick="firstNo()" class="secondary">No 💔</button>
+  </div>
+</div>
+
+<script>
+let step = 0;
+
+// Pages with creative, romantic, emotional text
+const pages = [
+{
+ title:"Hi Urjja ❤️",
+ text:`You made this year a symphony of smiles, gentle moments, and endless comfort.<br><br>
+ Every burden became lighter because you stood by me, a calm in my chaos.`
+},
+{
+ title:"Assurance",
+ text:`Even when I stumbled, failed, or doubted myself, you were there.<br>
+ Your presence whispered: "I am with you", and that became my anchor.`
+},
+{
+ title:"Strength",
+ text:`You gifted me the strength to face life boldly.<br>
+ The kind of strength that steadies my heart and lifts my spirit without saying a word.`
+},
+{
+ title:"Stability",
+ text:`Amid ups and downs, you became my stability.<br>
+ You turned ordinary days into warm havens, laughter into melody, and my world into a home.`
+},
+{
+ title:"Reality",
+ text:`Yet, I confess — I have faltered.<br>
+ I have caused tears, misunderstandings, and taken your love for granted.<br>
+ But every failure taught me the depth of your heart.`
+},
+{
+ title:"A Promise",
+ text:`I don’t promise perfection, only presence.<br>
+ I promise listening, learning, and cherishing you endlessly.<br><br>
+ I promise to nurture our love, to honor every heartbeat we share.`
+},
+{
+ title:`
+ <span style="color:#fb7185;">❤</span>
+ <span style="color:#ffffff;">❤</span>
+ <span style="color:#fde68a;">❤</span>
+ Happy New Year
+ <span style="color:#fde68a;">❤</span>
+ <span style="color:#ffffff;">❤</span>
+ <span style="color:#fb7185;">❤</span>
+ `,
+ text:`Happy New Year, my love! 💗💛🤍<br><br>
+ May our hearts dance together through this year, hand in hand,<br>
+ may laughter fill our days and love light every night.<br><br>
+ You mean the world to me, my sweetheart.` // romantic and flowing
+}
+];
+
+/* ---------- Fireworks ---------- */
+function fireworks(x=innerWidth/2,y=innerHeight/2,amount=8){
+  for(let i=0;i<amount;i++){
+    const fw=document.createElement("div");
+    fw.className="firework";
+    fw.style.left=x+"px"; fw.style.top=y+"px";
+    for(let j=0;j<20;j++){
+      const s=document.createElement("div");
+      s.className="spark";
+      s.style.setProperty("--x",`${Math.random()*180-90}px`);
+      s.style.setProperty("--y",`${Math.random()*180-90}px`);
+      s.style.setProperty("--h",Math.random()*360);
+      fw.appendChild(s);
+    }
+    document.body.appendChild(fw);
+    setTimeout(()=>fw.remove(),1200);
+  }
+}
+
+/* ---------- Hearts flow on Happy New Year ---------- */
+function heartsFlow(){
+  const colors=["#fb7185","#ffffff","#fde68a"];
+  for(let i=0;i<12;i++){
+    const h=document.createElement("div");
+    h.className="ny-heart";
+    h.style.left=Math.random()*window.innerWidth+"px";
+    h.style.top=window.innerHeight+"px";
+    h.style.setProperty('--c',colors[Math.floor(Math.random()*colors.length)]);
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),4000);
+  }
+}
+
+/* ---------- Logic ---------- */
+function firstYes(){
+  fireworks();
+  step=1;
+  showPage();
+}
+
+function firstNo(){
+  title.innerText="Error occurred";
+  text.innerText="Please try again.";
+  buttons.innerHTML=`<button onclick="location.reload()">Try Again</button>`;
+}
+
+function showPage(){
+  if(step<=pages.length){
+    const p=pages[step-1];
+    title.innerHTML=p.title;
+    text.innerHTML=p.text;
+    buttons.innerHTML=`<button onclick="next()">Tap to continue</button>`;
+    if(step===pages.length){
+      fireworks(innerWidth/2,innerHeight/2,16);
+      heartsFlow();
+      setInterval(heartsFlow,1500); // keep hearts flowing
+    }
+  }else{
+    hugPage();
+  }
+}
+
+function next(){step++;showPage();}
+
+function hugPage(){
+  title.innerText="Can I get a hug? 🤍";
+  text.innerText="";
+  buttons.innerHTML=`
+    <button onclick="yesHug()">Yes 🤍</button>
+    <button onclick="noHug()" class="secondary">No 😠</button>`;
+}
+
+function yesHug(){
+  fireworks(200,300,10);
+  fireworks(innerWidth-200,300,10);
+  // Uncomment the line below if you have your song in the folder
+  // new Audio("my_song.mp3").play();
+}
+
+function noHug(){alert("😠 Panda is angry");}
+
+/* ---------- Tap Hearts ---------- */
+document.body.addEventListener("click",e=>{
+  const h=document.createElement("div");
+  h.className="tap-heart";
+  h.style.left=e.pageX+"px";
+  h.style.top=e.pageY+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),800);
+});
+</script>
+
+</body>
+</html>
